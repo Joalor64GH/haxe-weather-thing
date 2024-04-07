@@ -86,23 +86,6 @@ class WeatherSearch extends FlxSubState {
                 }
             }
         }
-        #if !web
-        if (ed != null) {
-            ed.update(elapsed);
-            if (ed.animation.curAnim.finished) ed.dance();
-            /* if (FlxG.keys.justPressed.L && !blockInput) {
-                ed.visible = true;
-                ed.jumpscare();
-            } */
-        }
-
-        if (FlxG.keys.justPressed.L && !blockInput) {
-            ed.animation.play('wellWellWell');
-            FlxG.sound.play(PathFinder.loud_sound('theFunnyWell'), 1, false, null, true, function() {
-                trace('you have been well well well\'d');
-            });
-        }
-        #end
 
         if (!blockInput) {
             if (FlxG.sound.volumeUpKeys == null) {
