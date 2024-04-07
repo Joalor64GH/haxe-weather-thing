@@ -1,0 +1,34 @@
+name: Build
+
+on:
+  push:
+    branches: [ bussy-shart ]
+  pull_request:
+    branches: [ bussy-shart ]
+
+  workflow_dispatch:
+
+jobs:
+  buildWindows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@main
+
+      - uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: 4.3.3
+      - name: Install Haxelib
+        run: |
+          haxelib setup C:/haxelib
+          haxelib install hxcpp > /dev/null --quiet
+          haxelib install hmm --quiet
+          haxelib run hmm install
+        shell: cmd
+      - name: Compile
+        run: haxelib run lime build windows -debug --app-version="4.0.0-${{ github.run_id}}"
+      - name: Publish Artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: windowsBuild
+          path: export/debug/windows/bin

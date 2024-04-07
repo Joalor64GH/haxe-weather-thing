@@ -2,8 +2,11 @@
 <project>
 	
 	<meta title="HaxeFlixel Weather Thing" package="dumb.devin503.weather" version="0.0.3" company="devin503" />
-	<app main="Main" path="Export" file="FlxWeather" />
+	<app main="Main" file="FlxWeather" />
 	<app preloader="flixel.system.FlxPreloader" />
+
+	<set name="BUILD_DIR" value="export/debug" if="debug" />
+	<set name="BUILD_DIR" value="export/release" unless="debug" />
 	
 	<source path="Source" />
 	
@@ -13,6 +16,8 @@
 	<haxelib name="flixel-addons" />
 	<haxelib name="openfl" />
 	<haxelib name="weatherapi-hx" />
+
+	<haxelib name="hxcpp-debug-server" if="desktop debug" />
 	
 	
 	<assets path="Assets/Sounds/" exclude="*.ogg" if="web" />
