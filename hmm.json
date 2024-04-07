@@ -32,6 +32,10 @@
       {
         "name": "weatherapi-hx",
         "type": "haxelib"
+      },
+      {
+        "name": "hscript",
+        "type": "haxelib"
       }
     ]
   }

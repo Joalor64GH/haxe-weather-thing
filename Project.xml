@@ -17,14 +17,12 @@
 	<haxelib name="openfl" />
 	<haxelib name="weatherapi-hx" />
 
+	<haxelib name="hscript" />
+
 	<haxelib name="hxcpp-debug-server" if="desktop debug" />
 	
 	
-	<assets path="Assets/Sounds/" exclude="*.ogg" if="web" />
-	<assets path="Assets/Sounds/" exclude="*.mp3" unless="web" />
-	<assets path="Assets/Icons" exclude="*.md" />
-	<assets path="Assets/Images" exclude="Eduardo.*" if="web" />
-	<assets path="Assets/Placeholders" exclude="*.md" />
+	<assets path="Assets" />
 
 	<haxedef name="WINDUSSY" if="debug windows" /> <!-- remind me why i did this -->
 

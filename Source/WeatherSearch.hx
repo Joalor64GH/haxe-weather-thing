@@ -13,7 +13,6 @@ import FlxUIDropDownMenuCustom;
 import flixel.addons.ui.FlxUITabMenu;
 import flixel.addons.ui.FlxUI;
 import flixel.ui.FlxButton;
-#if !web import Eduardo; #end
 
 using StringTools;
 /** This substate provides a list of results from search
@@ -27,7 +26,6 @@ class WeatherSearch extends FlxSubState {
     var locations:Array<ResponseSearch> = [];
     var DEST_ON_SEVEN:Array<Dynamic> = [];
     var blockInputWhileTyping:Array<FlxUIInputText> = [];
-    #if !web var ed:Eduardo; #end
     public static var instance:WeatherSearch;
     public function new() {
         super();
@@ -49,13 +47,6 @@ class WeatherSearch extends FlxSubState {
         add(SearchUI);
         DEST_ON_SEVEN.push(SearchUI);
         setupSearchUI();
-        #if !web
-        ed = new Eduardo(0, 0);
-        //ed.visible = false;
-        ed.dance();
-        add(ed);
-        trace(ed);
-        #end
 
         if (ForecastState.location != null) {
             var exitButton = new FlxButton(0, 69, 'Exit', function() {
