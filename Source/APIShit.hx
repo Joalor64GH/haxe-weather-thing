@@ -1,12 +1,14 @@
 package;
 
 import haxe.Json;
+
 #if sys
 import sys.Http;
-#else
+#end
+
 import openfl.net.URLLoader;
 import openfl.net.URLRequest;
-#end
+
 import APIKey;
 
 using StringTools;
