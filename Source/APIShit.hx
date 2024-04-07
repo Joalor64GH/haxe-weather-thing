@@ -196,27 +196,21 @@ class APIShit {
         var weatherNow = getFromURL(API_LINK + 'current.json?key=' + APIKey.WeatherKey + QUERY + Location.replace(' ', '%20') + '&aqi=no');
         trace(weatherNow);
         var curThing:ResponseBody = cast Json.parse(weatherNow);
-        if (curThing.error != null) {
+        if (curThing.error != null)
             SusUtil.API_Failure(curThing.error.code);
-        }
         trace(curThing);
     }
     
     public static function searchWeather(Location:String):Array<ResponseSearch> {
         var sresult = getFromURL(API_LINK + 'search.json?key=' + APIKey.WeatherKey + QUERY + Location.replace(' ', '%20'));
-        //trace(sresult);
-        if (sresult.length < 3) {
+        if (sresult.length < 3)
             SusUtil.API_Failure(1006);
-        }
         return cast Json.parse(sresult);
     }
     
     public static function getForecast(Location:String):ResponseForecast {
         var forecast = getFromURL(API_LINK + 'forecast.json?key=' + APIKey.WeatherKey + QUERY + Location.replace(' ', '%20') + '&days=1&aqi=no&alerts=yes');
         var fc:ResponseForecast = cast Json.parse(forecast);
-        /*if (fc.error != null) {
-            SusUtil.API_Failure(fc.error.code);
-        } */
         lime.system.Clipboard.text = (Json.stringify(fc, "\t"));
         return cast Json.parse(forecast);
     }

@@ -35,10 +35,8 @@ class LaunchState extends FlxState {
         trace("sus");
         #end
         trace(appVersionInfo);
-        if (APIKey.WeatherKey == '') {
-            //SusUtil.openLink('https://weatherapi.com/'); (THIS WAS A TEST!!)
+        if (APIKey.WeatherKey == '')
             SusUtil.API_Failure(0); // Crash if the API key is missing.
-        }
     }
     override function update(elapsed:Float) {
         if (FlxG.keys.justPressed.SEVEN) {
@@ -75,10 +73,8 @@ class LaunchState extends FlxState {
         persistentUpdate = true; //speen
 
         #if debug
-        //APIShit.getNow('Myrtle Beach');
         trace('among us');
         #end
-        //SusUtil.getWeatherIcon('night/420.png');
         new FlxTimer().start(3, function(tmr:FlxTimer) {
             if (!FlxG.save.data.finishedSetup) FlxG.switchState(new InitialSetup()) else {
                 if (FlxG.save.data.tempUnits != null) {
